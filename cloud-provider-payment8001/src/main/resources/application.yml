@@ -1,0 +1,28 @@
+server:
+  port: 8001
+
+
+spring:
+  application:
+    #服务名
+    name: cloud-payment-service
+
+  #注册中心
+  cloud:
+    nacos:
+      discovery:
+        ###服务注册地址
+        server-addr: liguanghao.top:8848
+        #server-addr: 127.0.0.1:8848
+
+  #数据库
+  datasource:
+    url: jdbc:mysql://139.129.101.74:3306/springcloud2020?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+  config-location: classpath:mybatis-config.xml
+
