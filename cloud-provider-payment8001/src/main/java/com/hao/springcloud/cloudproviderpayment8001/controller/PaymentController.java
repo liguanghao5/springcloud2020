@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.TimeUnit;
+
 @RestController
 @Slf4j
 public class PaymentController {
@@ -43,6 +45,22 @@ public class PaymentController {
         return massger;
 
     }
+
+    @GetMapping("/run3s")
+    public String run3s(){
+
+        try {
+
+            TimeUnit.SECONDS.sleep(3);
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "成功";
+    }
+
+
 
 
 

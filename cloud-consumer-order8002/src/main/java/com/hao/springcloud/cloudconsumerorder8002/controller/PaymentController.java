@@ -42,6 +42,16 @@ public class PaymentController {
     }
 
 
+    @GetMapping("/run3s")
+    public String run3s(){
+
+        String s = paymentService.run3s();
+
+        return s;
+
+    }
+
+
 
 
 }

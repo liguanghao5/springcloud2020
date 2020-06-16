@@ -16,4 +16,8 @@ public interface PaymentService {
     public Payment getPayMent001(@PathVariable("id") long id);
 
 
+    @GetMapping("/run3s")
+    public String run3s();
+
+
 }
