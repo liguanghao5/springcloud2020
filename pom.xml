@@ -32,7 +32,6 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <mybatis.version>2.1.2</mybatis.version>
         <cloud.commons.version>2.2.2.RELEASE</cloud.commons.version>
-        <openfeign.version>2.2.2.RELEASE</openfeign.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -56,6 +55,28 @@
                 <artifactId>spring-cloud-commons</artifactId>
                 <version>${cloud.commons.version}</version>
             </dependency>
+
+            <!--nacos-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                <version>2.2.1.RELEASE</version>
+            </dependency>
+
+            <!--openfeign-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-openfeign</artifactId>
+                <version>${cloud.commons.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-hystrix -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+                <version>${cloud.commons.version}</version>
+            </dependency>
+
         </dependencies>
 
 
