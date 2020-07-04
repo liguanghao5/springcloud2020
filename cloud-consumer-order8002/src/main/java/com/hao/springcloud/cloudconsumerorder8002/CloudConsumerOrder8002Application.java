@@ -11,8 +11,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableFeignClients(value = "com.hao.springcloud.cloudconsumerorder8002.service")
 @RibbonClient(name = "cloud-payment-service", configuration = MySelfRule.class)//专属于“cloud-payment-service”服务的负载规则
-@EnableHystrix
-@EnableSwagger2
+@EnableHystrix//服务熔断
+@EnableSwagger2//文档
 public class CloudConsumerOrder8002Application {
 
 	public static void main(String[] args) {

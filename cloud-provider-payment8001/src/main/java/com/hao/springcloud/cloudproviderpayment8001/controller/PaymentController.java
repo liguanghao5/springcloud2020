@@ -74,7 +74,7 @@ public class PaymentController {
 
         Payment payment = paymentMapper.selectByPrimaryKey(id);
 
-        payment.setPort(port);//获取当前服务器的端口号，用于区别
+        //payment.setPort(port);//获取当前服务器的端口号，用于区别
 
         log.info("payment:"+payment);
         return payment;

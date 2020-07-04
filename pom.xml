@@ -22,6 +22,7 @@
         <module>cloud-provider-payment8001</module>
         <module>cloud-provider-payment8003</module>
         <module>cloud-consumer-order8002</module>
+        <module>cloud-gateway-gateway9527</module>
     </modules>
 
 
@@ -32,6 +33,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <mybatis.version>2.1.2</mybatis.version>
         <cloud.commons.version>2.2.2.RELEASE</cloud.commons.version>
+        <mybatisp.version>3.3.1</mybatisp.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -75,6 +77,18 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
                 <version>${cloud.commons.version}</version>
+            </dependency>
+            <!--mybatisplus-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatisp.version}</version>
+            </dependency>
+            <!--mybatispuls的代码生成器-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatisp.version}</version>
             </dependency>
 
 
