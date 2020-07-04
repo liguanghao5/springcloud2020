@@ -9,7 +9,7 @@ import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 
 
 @SpringBootApplication
-@MapperScan("com.hao.springcloud.cloudproviderpayment8001.mappers")
+@MapperScan("com.hao.springcloud.cloudproviderpayment8001.mapper")
 @EnableDiscoveryClient
 @EnableHystrix
 public class CloudProviderPayment8001Application {

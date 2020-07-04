@@ -1,6 +1,7 @@
 package com.hao.springcloud.cloudconsumerorder8002;
 
 import com.hao.springcloud.myrule.MySelfRule;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
@@ -13,6 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @RibbonClient(name = "cloud-payment-service", configuration = MySelfRule.class)//专属于“cloud-payment-service”服务的负载规则
 @EnableHystrix//服务熔断
 @EnableSwagger2//文档
+@MapperScan("com.hao.springcloud.cloudconsumerorder8002.mapper")
 public class CloudConsumerOrder8002Application {
 
 	public static void main(String[] args) {

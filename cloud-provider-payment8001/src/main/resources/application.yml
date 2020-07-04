@@ -26,3 +26,10 @@ spring:
 #  mapper-locations: classpath:mappers/*.xml
 #  config-location: classpath:mybatis-config.xml
 
+
+#mybatisplus配置
+mybatis-plus: #com.hao.springcloud.cloudproviderpayment8001.mapper.xml
+  mapper-locations: classpath:com/hao/springcloud/cloudproviderpayment8001/mapper/xml/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  #开启日志打印
+

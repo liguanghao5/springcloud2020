@@ -1,20 +1,18 @@
 package com.hao.springcloud.cloudproviderpayment8001.controller;
 
 
-import com.baomidou.mybatisplus.core.conditions.AbstractLambdaWrapper;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.conditions.update.UpdateChainWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.hao.cloudapicommons.bean.User;
 import com.hao.cloudapicommons.util.R;
-import com.hao.springcloud.cloudproviderpayment8001.mappers.UserMapper;
+import com.hao.springcloud.cloudproviderpayment8001.bean.User;
+import com.hao.springcloud.cloudproviderpayment8001.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,7 +34,13 @@ public class UserController {
 
         log.info("addUser入参："+user);
 
-        int insert = userMapper.insert(user);
+        user.setCreateTime(LocalDateTime.now());
+        user.setUpdateTime(LocalDateTime.now());
+
+
+
+        userMapper.insert(user);
+        Integer id = user.getId();
 
         return R.ok(user);
 

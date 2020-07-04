@@ -1,4 +1,4 @@
-package com.hao.springcloud.cloudproviderpayment8001.mappers;
+package com.hao.springcloud.cloudproviderpayment8001.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.hao.cloudapicommons.bean.Payment;
