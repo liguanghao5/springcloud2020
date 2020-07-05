@@ -76,7 +76,7 @@ public class CodeGenerator {
 
         strategy.setNaming(NamingStrategy.underline_to_camel);//数据库表映射到实体的命名策略
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);//数据库表字段映射到实体的命名策略, 未指定按照 naming 执行
-        strategy.setEntityLombokModel(true);
+        //strategy.setEntityLombokModel(true);
         strategy.setRestControllerStyle(true);//生成 @RestController 控制器
 
 

@@ -2,20 +2,14 @@ package com.hao.springcloud.cloudconsumerorder8002.controller;
 
 
 import com.hao.cloudapicommons.bean.Payment;
-import com.hao.springcloud.cloudconsumerorder8002.bean.User;
+import com.hao.cloudapicommons.bean.User;
 import com.hao.springcloud.cloudconsumerorder8002.service.PaymentService;
 import com.hao.springcloud.cloudconsumerorder8002.service.impl.PaymentServiceImpl;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
-
-import javax.management.Query;
-import java.util.concurrent.TimeUnit;
 
 
 @Api(tags = "订单管理")
@@ -30,18 +24,7 @@ public class PaymentController {
     PaymentServiceImpl paymentServiceImpl;
 
 
-    @ApiOperation(value = "swagger测试头",notes = "swagger测试内")
-    @ApiResponses({
-            @ApiResponse(code = 200 ,message = "成功"),
-            @ApiResponse(code = 400 ,message = "服务器错误"),
-            @ApiResponse(code = 404 ,message = "未找到方法")
-    })
-    @PostMapping("/swagger/postTest")
-    public User getUser(User user){
 
-        return user;
-
-    }
 
 
     @ApiIgnore

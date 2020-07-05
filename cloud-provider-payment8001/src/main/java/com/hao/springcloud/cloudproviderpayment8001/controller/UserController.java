@@ -4,17 +4,14 @@ package com.hao.springcloud.cloudproviderpayment8001.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.hao.cloudapicommons.bean.User;
 import com.hao.cloudapicommons.util.R;
-import com.hao.springcloud.cloudproviderpayment8001.bean.User;
 import com.hao.springcloud.cloudproviderpayment8001.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/user")
@@ -51,7 +48,7 @@ public class UserController {
      * @param id
      * @return
      */
-    @GetMapping("getUser")
+    @GetMapping("/getUser")
     public R getUser(long id){
 
         User user = userMapper.selectById(id);
@@ -60,27 +57,42 @@ public class UserController {
 
     }
 
-    @GetMapping("getUserList")
-    public R getUserList(String roles,int current,int size){
+    @GetMapping("/getUserList")
+    public R getUserList(String roles,int current,int size,String guid){
+
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        Map<String, Object> params = new HashMap<String, Object>();
-        params.put("roles", roles);
-        queryWrapper.allEq(params);
+
+        queryWrapper.like("u.roles",roles);
+        queryWrapper.like("u.guid",guid);
 
         queryWrapper.orderByDesc("id");//根据id倒叙排序
 
-        IPage iPage = new Page(current,size);//分页
+        Page Page = new Page(current,size);//分页
 
-        IPage data = userMapper.selectPage(iPage, queryWrapper);
+        IPage data = userMapper.selectAllPage(Page, queryWrapper);
 
         return R.ok(data);
 
     }
 
-    @PutMapping("updateUser")
+    @GetMapping("/getUserList2")
+    public R getUserList2(String roles,int current,int size,String guid){
+
+
+        Page Page = new Page(current,size);//分页
+
+        IPage data = userMapper.selectAllPage2(Page,roles,guid);
+
+        return R.ok(data);
+
+    }
+
+    @PutMapping("/updateUser")
     public R updateUser(User user){
 
         log.info("updateUser入参："+user);
+
+
 
         userMapper.updateById(user);
 
@@ -88,7 +100,7 @@ public class UserController {
     }
 
 
-    @DeleteMapping("deleteUser")
+    @DeleteMapping("/deleteUser")
     public R deleteUser(long id){
 
         userMapper.deleteById(id);

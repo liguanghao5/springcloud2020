@@ -61,10 +61,10 @@
 
 
         <!--mybatisplus-->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.baomidou</groupId>-->
+            <!--<artifactId>mybatis-plus-boot-starter</artifactId>-->
+        <!--</dependency>-->
         <!--自动生成bean，service，controller，mapper-->
         <dependency>
             <groupId>com.baomidou</groupId>

@@ -1,7 +1,7 @@
 package com.hao.springcloud.cloudproviderpayment8001.service;
 
-import com.hao.springcloud.cloudproviderpayment8001.bean.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.hao.cloudapicommons.bean.User;
 
 /**
  * <p>

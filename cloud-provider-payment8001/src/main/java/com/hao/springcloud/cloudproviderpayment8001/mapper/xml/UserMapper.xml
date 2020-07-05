@@ -2,20 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hao.springcloud.cloudproviderpayment8001.mapper.UserMapper">
 
-    <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.hao.springcloud.cloudproviderpayment8001.bean.User">
-        <id column="id" property="id" />
-        <result column="guid" property="guid" />
-        <result column="roles" property="roles" />
-        <result column="create_time" property="createTime" />
-        <result column="update_time" property="updateTime" />
-        <result column="register_uuid" property="registerUuid" />
-        <result column="register_ip" property="registerIp" />
-    </resultMap>
+    <select id="selectAllPage" resultType="com.hao.cloudapicommons.bean.User">
+        select u.*,a.`level` FROM `user` u LEFT JOIN area a ON u.guid = a.`name` ${ew.customSqlSegment}
+    </select>
 
-    <!-- 通用查询结果列 -->
-    <sql id="Base_Column_List">
-        id, guid, roles, create_time, update_time, register_uuid, register_ip
-    </sql>
+
+    <select id="selectAllPage2" resultType="com.hao.cloudapicommons.bean.User" >
+        select u.*,a.`level` FROM `user` u LEFT JOIN area a ON u.guid = a.`name`
+        WHERE 1=1
+        <if test="roles != null">
+            AND  roles LIKE concat('%',#{roles},'%')
+        </if>
+        <if test="guid != null">
+            AND  guid LIKE concat('%',#{guid},'%')
+        </if>
+
+    </select>
+
+
+
 
 </mapper>

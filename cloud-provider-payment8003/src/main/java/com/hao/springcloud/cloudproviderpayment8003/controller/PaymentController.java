@@ -1,7 +1,7 @@
 package com.hao.springcloud.cloudproviderpayment8003.controller;
 
 import com.hao.cloudapicommons.bean.Payment;
-import com.hao.springcloud.cloudproviderpayment8003.mappers.PaymentMapper;
+import com.hao.springcloud.cloudproviderpayment8003.mapper.PaymentMapper;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

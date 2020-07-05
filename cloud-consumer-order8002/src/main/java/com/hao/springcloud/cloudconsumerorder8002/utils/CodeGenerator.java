@@ -77,8 +77,8 @@ public class CodeGenerator {
         strategy.setRestControllerStyle(true);//生成 @RestController 控制器
 
 
-        //strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
-        strategy.setInclude("area");
+        strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
+        //strategy.setInclude("area");
         strategy.setControllerMappingHyphenStyle(true);//驼峰转连字符
         //strategy.setTablePrefix(pc.getModuleName() + "_");//表前缀
         mpg.setStrategy(strategy);

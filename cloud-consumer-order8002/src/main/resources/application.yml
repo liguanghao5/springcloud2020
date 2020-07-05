@@ -21,8 +21,13 @@ spring:
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:   #连接超时的问题
+      idle-timeout: 60000
+      connection-timeout: 60000
+      login-timeout: 3000
+      max-lifetime: 60000
 
-  servlet:
+  servlet:  #上传文件大小设置
     multipart:
       max-file-size: 50MB
       max-request-size: 50MB
@@ -48,5 +53,7 @@ feign:
   hystrix:
     enabled: true #如果处理自身的容错就开启。开启方式与生产端不一样。
 
-mybatis-plus: #com.hao.springcloud.cloudconsumerorder8002.mapper.xml
-  mapper-locations: classpath:com/hao/springcloud/cloudconsumerorder8002/mapper/xml/*.xml
+mybatis-plus:
+  mapper-locations: classpath:**/mapper/xml/*.xml #指定mapper.xml路径
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  #开启日志打印

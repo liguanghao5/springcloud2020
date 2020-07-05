@@ -1,6 +1,7 @@
 package com.hao.springcloud.cloudconsumerorder8002.service;
 
 import com.hao.cloudapicommons.bean.Payment;
+import com.hao.springcloud.cloudconsumerorder8002.service.fallback.PaymentServiceFallback;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -31,21 +32,3 @@ public interface PaymentService {
 
 }
 
-@Service
-class PaymentServiceFallback implements PaymentService{
-
-    @Override
-    public String paymentInfo_TimeOut(Integer id) {
-        return "兜底方法----paymentInfo_TimeOut";
-    }
-
-    @Override
-    public Payment getPayMent001(long id) {
-        return null;
-    }
-
-    @Override
-    public String run3s() {
-        return "兜底方法----run3s";
-    }
-}

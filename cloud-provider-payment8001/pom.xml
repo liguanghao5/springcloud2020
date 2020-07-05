@@ -71,6 +71,12 @@
         </dependency>
 
 
+        <!--mybatisplus-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+
 
     </dependencies>
 
@@ -96,6 +102,15 @@
 <!--            </plugin>-->
 
 		</plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
 	</build>
 
 </project>
