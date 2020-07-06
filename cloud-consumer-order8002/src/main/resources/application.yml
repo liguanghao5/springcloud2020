@@ -32,6 +32,8 @@ spring:
       max-file-size: 50MB
       max-request-size: 50MB
 
+  main:
+    allow-bean-definition-overriding: true  #本地可以多个service调同一个微服务
 
 #mybatis:
 #  mapper-locations: classpath:mappers/*.xml
