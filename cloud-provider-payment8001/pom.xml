@@ -118,6 +118,7 @@
                     <include>**/*.yml</include>
                 </includes>
             </resource>
+            <!--为了resources下的配置文件生效，必须把下边的也配上去-->
             <resource>
                 <directory>src/main/resources</directory>
                 <includes>
