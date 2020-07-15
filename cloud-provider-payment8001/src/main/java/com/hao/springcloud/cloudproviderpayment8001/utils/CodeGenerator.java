@@ -1,15 +1,15 @@
 package com.hao.springcloud.cloudproviderpayment8001.utils;
 
 import com.baomidou.mybatisplus.annotation.DbType;
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
-import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
-import com.baomidou.mybatisplus.generator.config.GlobalConfig;
-import com.baomidou.mybatisplus.generator.config.PackageConfig;
-import com.baomidou.mybatisplus.generator.config.StrategyConfig;
+import com.baomidou.mybatisplus.generator.config.*;
+import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
 import java.util.Scanner;
 
@@ -51,6 +51,8 @@ public class CodeGenerator {
         gc.setServiceName("%sService");//service前面没有“I"
         gc.setBaseResultMap(true);//生成基本的sql语句在xml中
         gc.setBaseColumnList(true);//生成sql片段在xml中
+        gc.setIdType(IdType.AUTO);//指定id策略，auto：主键自增
+        gc.setDateType(DateType.TIME_PACK);//指定时间类型
         mpg.setGlobalConfig(gc);
 
         //包配置
@@ -58,13 +60,19 @@ public class CodeGenerator {
         //pc.setModuleName(scanner("模块名"));
         pc.setParent("com.hao.springcloud.cloudproviderpayment8001");
         pc.setEntity("bean");
+        pc.setController("controller");
+        pc.setService("service");
+        pc.setServiceImpl("service.impl");
+        pc.setMapper("mapper");
+        pc.setXml("mapper.xml");
+
 
         mpg.setPackageInfo(pc);
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
         dsc.setDbType(DbType.MYSQL);
-        dsc.setUrl("jdbc:mysql://localhost:3306/springcloud2020?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC");
+        dsc.setUrl("jdbc:mysql://139.129.101.74:3306/springcloud2020?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("123456");
@@ -76,7 +84,7 @@ public class CodeGenerator {
 
         strategy.setNaming(NamingStrategy.underline_to_camel);//数据库表映射到实体的命名策略
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);//数据库表字段映射到实体的命名策略, 未指定按照 naming 执行
-        //strategy.setEntityLombokModel(true);
+        strategy.setEntityLombokModel(true);
         strategy.setRestControllerStyle(true);//生成 @RestController 控制器
 
 
@@ -87,6 +95,14 @@ public class CodeGenerator {
         mpg.setStrategy(strategy);
 
 
+        // 配置模板
+        TemplateConfig templateConfig = new TemplateConfig();
+
+        templateConfig.setService(null);//设置不生成service类
+        templateConfig.setServiceImpl(null);//设置不生成serviceImpl类
+        templateConfig.setController(null);
+
+        mpg.setTemplate(templateConfig);
 
         mpg.execute();
     }
