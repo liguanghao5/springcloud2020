@@ -23,6 +23,7 @@
         <module>cloud-provider-payment8003</module>
         <module>cloud-consumer-order8002</module>
         <module>cloud-gateway-gateway9527</module>
+        <module>cloud-rabbitmq8004</module>
     </modules>
 
 
@@ -174,6 +175,23 @@
 <!--                </executions>-->
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                    <include>**/*.yml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.xml</include>
+                    <include>**/*.yml</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
 
 </project>
