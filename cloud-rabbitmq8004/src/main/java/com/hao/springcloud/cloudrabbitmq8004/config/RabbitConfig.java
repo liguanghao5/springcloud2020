@@ -29,6 +29,28 @@ public class RabbitConfig {
     public Queue userQueue() {
         return new Queue("user");
     }
+
+    @Bean
+    public Queue userQueue2() {
+        return new Queue("user2");
+    }
+
+    /**
+     * 把user队列绑定到 directExchange 交换器中 routingKey 为 user
+     * @param userQueue
+     * @param directExchange
+     * @return
+     */
+    @Bean
+    public Binding bindingDirectUserQueue(Queue userQueue,DirectExchange directExchange){
+        return BindingBuilder.bind(userQueue).to(directExchange).with("user_routingKey");
+    }
+    @Bean
+    public Binding bindingDirectUserQueue2(Queue userQueue2,DirectExchange directExchange){
+        return BindingBuilder.bind(userQueue2).to(directExchange).with("user_routingKey");
+    }
+
+
 //
 //    @Bean
 //    public Queue queueMessage() {
@@ -87,10 +109,8 @@ public class RabbitConfig {
 
     //======================binding===========================================
 
-    @Bean
-    public Binding aabb(Queue helloQueue , DirectExchange directExchange){
-        return BindingBuilder.bind(helloQueue).to(directExchange).with("helloQueue");
-    }
+
+
 
 //    /**
 //     * 将队列topic.message与exchange绑定，binding_key为topic.message,就是完全匹配
