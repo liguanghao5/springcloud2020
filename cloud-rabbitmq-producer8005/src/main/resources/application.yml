@@ -1,0 +1,24 @@
+server:
+  port: 8005
+
+
+spring:
+  application:
+    #服务名
+    name: cloud-rabbitmq-producer
+
+  #配置rabbitmq
+  rabbitmq:
+    host: liguanghao.top
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        acknowledge-mode: manual  #采用手动应答
+        concurrency: 1            #消费者最小数量
+        max-concurrency: 10       #消费者最大数量
+        prefetch: 1               #在单个请求中处理的消息个数
+
+    template:
+      mandatory: true

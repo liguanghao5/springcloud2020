@@ -24,6 +24,8 @@
         <module>cloud-consumer-order8002</module>
         <module>cloud-gateway-gateway9527</module>
         <module>cloud-rabbitmq8004</module>
+        <module>cloud-rabbitmq-producer8005</module>
+        <module>cloud-rabbitmq-consumer8006</module>
     </modules>
 
 

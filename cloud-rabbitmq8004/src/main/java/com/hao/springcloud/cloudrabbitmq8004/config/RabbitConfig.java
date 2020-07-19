@@ -33,7 +33,7 @@ public class RabbitConfig {
          * exclusive:表示该消息队列是否只在当前connection中生效，默认是false
          * autoDelete:没有消息和连接时是否自动删除，默认时false
          */
-        Queue hello = new Queue("hello",true,false,true);
+        Queue hello = new Queue("hello",true,false,false);
         return hello;
     }
 

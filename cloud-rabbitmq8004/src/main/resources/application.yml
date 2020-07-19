@@ -7,18 +7,10 @@ spring:
     #服务名
     name: cloud-rabbitmq
 
-  #注册中心
-  cloud:
-    nacos:
-      discovery:
-        ###服务注册地址
-        server-addr: liguanghao.top:8848
-
   #配置rabbitmq
   rabbitmq:
     host: liguanghao.top
     port: 5672
     username: guest
     password: guest
-    
 
