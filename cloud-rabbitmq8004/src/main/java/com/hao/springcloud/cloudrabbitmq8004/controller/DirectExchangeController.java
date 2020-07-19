@@ -14,7 +14,7 @@ import java.util.Date;
 @Slf4j
 @RequestMapping("/user")
 @RestController
-public class DirectExchangesController {
+public class DirectExchangeController {
 
 
     @Autowired

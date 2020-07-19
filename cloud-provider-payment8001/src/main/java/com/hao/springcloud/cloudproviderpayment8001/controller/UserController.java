@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @RestController
 @RequestMapping("/user")
@@ -31,8 +32,8 @@ public class UserController {
 
         log.info("addUser入参："+user);
 
-        user.setCreateTime(LocalDateTime.now());
-        user.setUpdateTime(LocalDateTime.now());
+        user.setCreateTime(new Date());
+        user.setUpdateTime(new Date());
 
 
 

@@ -28,9 +28,12 @@ public class HelloQueuesController {
     @GetMapping("/sendHello")
     public R sendHello(){
 
-        String message = "hello:helloQueue";
-        log.info("发送消息到hellod队列："+message);
-        rabbitTemplate.convertAndSend("hello",message);
+
+        for (int i = 0; i < 20 ; i++) {
+            String message = "hello:helloQueue"+i;
+            log.info("发送消息到hellod队列："+message);
+            rabbitTemplate.convertAndSend("hello",message);
+        }
 
         return R.ok();
     }
@@ -47,9 +50,16 @@ public class HelloQueuesController {
 
 
     @RabbitListener(queues = "hello")
-    public void getHelloLer(String helloMessage){
-        log.info("监听hello队列获取消息:"+helloMessage);
+    public void getHelloLer1(String helloMessage) throws InterruptedException {
+        Thread.sleep(5000);
+        log.info("监听hello队列获取消息1:"+helloMessage);
     }
+//
+//    @RabbitListener(queues = "hello")
+//    public void getHelloLer2(String helloMessage) throws InterruptedException {
+//        Thread.sleep(3000);
+//        log.info("监听hello队列获取消息2:"+helloMessage);
+//    }
 
 
 
