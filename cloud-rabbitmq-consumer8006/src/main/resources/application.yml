@@ -13,6 +13,7 @@ spring:
     port: 5672
     username: guest
     password: guest
+
     listener:
       simple:
         acknowledge-mode: manual  #采用手动应答
@@ -20,5 +21,3 @@ spring:
         max-concurrency: 10       #消费者最大数量
         prefetch: 1               #在单个请求中处理的消息个数
 
-    template:
-      mandatory: true

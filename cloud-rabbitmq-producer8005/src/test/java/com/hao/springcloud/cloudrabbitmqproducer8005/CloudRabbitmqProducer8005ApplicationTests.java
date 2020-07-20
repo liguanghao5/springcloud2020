@@ -8,6 +8,9 @@ class CloudRabbitmqProducer8005ApplicationTests {
 
 	@Test
 	void contextLoads() {
+
+		System.out.println("aaa");
+
 	}
 
 }

@@ -17,6 +17,12 @@
 
 	<dependencies>
 
+		<dependency>
+			<groupId>com.hao.springcloud</groupId>
+			<artifactId>cloud-api-commons</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+
         <!--boot-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
