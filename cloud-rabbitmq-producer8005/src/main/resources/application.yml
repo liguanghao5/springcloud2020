@@ -21,12 +21,6 @@ spring:
     #开启消息找不到队列返回机制--ReturnCallback（新版本不配此项好像也可以）
     publisher-returns: true
 
-#    listener:
-#      simple:
-#        acknowledge-mode: manual  #采用手动应答
-#        concurrency: 1            #消费者最小数量
-#        max-concurrency: 10       #消费者最大数量
-#        prefetch: 1               #在单个请求中处理的消息个数
 
 
 

@@ -18,9 +18,10 @@ public class HelloController {
 
 
     @GetMapping("/sendHello")
-    public R sendHello(@RequestParam("exchange") String exchange, @RequestParam("key")String key){
+    public R sendHello(@RequestParam("exchange") String exchange,
+                       @RequestParam("key") String key,
+                       @RequestParam("message") String message){
 
-        String message = "hello-message";
         log.info("发送hello消息："+message);
 
         rabbitTemplate.convertAndSend(exchange,key,message);

@@ -43,9 +43,9 @@ public class RabbitMqConfig {
         //确认消息是否发送到exchange
         rabbitTemplate.setConfirmCallback((correlationData,ack,cause)->{
             if(ack){//发送成功
-                log.info("RabbitMq消息:{"+correlationData+"}消息发送到exchange成功");
+                log.info("RabbitMq消息发送到exchange成功");
             }else{//发送失败
-                log.info("RabbitMq消息:{"+correlationData+"}消息发送到exchange失败，原因：{"+cause+"}");
+                log.info("RabbitMq消息发送到exchange失败，原因：{"+cause+"}");
             }
         });
 
@@ -64,12 +64,12 @@ public class RabbitMqConfig {
 
     @Bean
     public Queue helloQ(){
-        return new Queue("helloQ",true,false,true);
+        return new Queue("helloQ");
     }
 
     @Bean
     public TopicExchange helloTop(){
-        return new TopicExchange("helloTop",true,true);
+        return new TopicExchange("helloTop");
     }
 
     @Bean

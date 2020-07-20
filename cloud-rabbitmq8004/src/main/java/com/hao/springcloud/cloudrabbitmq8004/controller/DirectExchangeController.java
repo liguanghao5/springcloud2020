@@ -3,6 +3,7 @@ package com.hao.springcloud.cloudrabbitmq8004.controller;
 import com.hao.cloudapicommons.bean.User;
 import com.hao.cloudapicommons.util.R;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,14 +45,16 @@ public class DirectExchangeController {
      */
     @GetMapping("/sendUserq")
     public R sendUserq(){
+        for (int i = 0; i <10 ; i++) {
+            User user = new User();
+            user.setCreateTime(new Date());
+            user.setId(i);
+            user.setGuid("wangtainyu");
+            log.info("发送user消息到队列："+user);
 
-        User user = new User();
-        user.setCreateTime(new Date());
-        user.setId(12);
-        user.setGuid("wangtainyu");
-        log.info("发送user消息到队列："+user);
+            rabbitTemplate.convertAndSend("user",user);
 
-        rabbitTemplate.convertAndSend("user",user);
+        }
 
         return R.ok();
     }
@@ -75,6 +78,29 @@ public class DirectExchangeController {
         User user = (User) rabbitTemplate.receiveAndConvert("user2");
         log.info("从user2队列中手动取出消息："+user);
         return R.ok(user);
+    }
+
+
+    @RabbitListener(queues = "user")
+    public void getUserLer(User user){
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        log.info("getUserLer:"+user);
+            int i = 10/0;
+
+    }
+
+    @RabbitListener(queues = "user")
+    public void getUserLer2(User user){
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+            log.info("getUserLer2222:"+user);
     }
 
 
