@@ -89,7 +89,7 @@ public class DirectExchangeController {
             e.printStackTrace();
         }
         log.info("getUserLer:"+user);
-            int i = 10/0;
+        int i = 10/0;
 
     }
 

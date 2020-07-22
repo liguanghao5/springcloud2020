@@ -16,7 +16,7 @@ spring:
 
     #确认消息已经发送到交换器（exchange）--ConfirmCallback
     #publisher-confirms: true               #旧版的配置-已过时
-    publisher-confirm-type: correlated      #新版的配置，选择确认类型为交互
+    publisher-confirm-type: correlated      #新版的配置，选择确认类型为 交互类型
 
     #开启消息找不到队列返回机制--ReturnCallback（新版本不配此项好像也可以）
     publisher-returns: true

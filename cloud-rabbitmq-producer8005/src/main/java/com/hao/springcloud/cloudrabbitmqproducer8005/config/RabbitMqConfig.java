@@ -49,11 +49,14 @@ public class RabbitMqConfig {
             }
         });
 
-        //消息发送失败返回执行方法
+        //消息发送失败执行方法此方法，成功不会执行此方法-用来判断从exchange是否能正确发送给消息队列
         rabbitTemplate.setReturnCallback((message, replyCode, replyText, exchange, routingKey)->{
             String correlationId = new String(message.getBody());
-            log.info("RabbitMQ：{"+correlationId+"}消息路由失败，应答码：{"+replyCode+"}，原因：{"+
-                    replyText+"},交互器：{"+exchange+"},路由键：{"+routingKey+"}");
+            log.info("RabbitMQ：{"+correlationId+"}消息路由失败，" +
+                     "应答码：{"+replyCode+"}，" +
+                     "原因：{"+replyText+"}," +
+                     "交互器：{"+exchange+"}," +
+                     "路由键：{"+routingKey+"}");
         });
 
         return rabbitTemplate;
