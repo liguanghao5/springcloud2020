@@ -26,6 +26,7 @@
         <module>cloud-rabbitmq8004</module>
         <module>cloud-rabbitmq-producer8005</module>
         <module>cloud-rabbitmq-consumer8006</module>
+        <module>cloud-rabbitmq8007</module>
     </modules>
 
 

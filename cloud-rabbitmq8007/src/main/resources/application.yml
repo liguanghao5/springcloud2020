@@ -1,0 +1,20 @@
+server:
+  port: 8007
+
+
+spring:
+  application:
+    #服务名
+    name: cloud-rabbitmq-8007
+
+  #配置rabbitmq
+  rabbitmq:
+    host: liguanghao.top
+    port: 5672
+    username: guest
+    password: guest
+
+    listener:
+      simple:
+        retry:
+            max-attempts: 5         # 设置重试次数
