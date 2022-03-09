@@ -5,15 +5,25 @@ server:
 spring:
   application:
     #服务名
-    name: openfeign9001
+    name: openfeign9002
 
-  #注册中心
+
   cloud:
+
+    #注册中心
     nacos:
       discovery:
         ###服务注册地址
         server-addr: 127.0.0.1:8848
         #server-addr: 127.0.0.1:8848
+
+    #服务熔断降级
+    sentinel:
+      transport:
+        port: 8719 #默认端口8719，如果被占用从8719开始+1直到找到未被占用的端口
+        dashboard: localhost:8080 #sentinel的地址和端口号，默认端口号8080
+
+
 
   #数据库
   datasource:

@@ -5,15 +5,23 @@ server:
 spring:
   application:
     #服务名
-    name: cloud-openfeign9001
+    name: openfeign9001
 
-  #注册中心
+
   cloud:
+
+    #注册中心
     nacos:
       discovery:
         ###服务注册地址
         server-addr: 127.0.0.1:8848
         #server-addr: 127.0.0.1:8848
+
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: localhost:8080
+
 
   #数据库
   datasource:
