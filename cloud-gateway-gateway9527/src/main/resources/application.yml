@@ -12,7 +12,7 @@ spring:
     nacos:
       discovery:
         ###服务注册地址
-        server-addr: liguanghao.top:8848
+        server-addr: 127.0.0.1:8848
     #网关
     gateway:
       discovery:

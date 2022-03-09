@@ -9,6 +9,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 public class CloudSentinel8100Application {
 
     public static void main(String[] args) {
+
         SpringApplication.run(CloudSentinel8100Application.class, args);
     }
 
