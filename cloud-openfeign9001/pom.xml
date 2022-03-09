@@ -2,6 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>com.hao.springcloud</groupId>
         <artifactId>springcloud2020</artifactId>
@@ -9,8 +10,8 @@
     </parent>
 
 
-    <artifactId>cloud-sentinel8100</artifactId>
 
+    <artifactId>cloud-openfeign9001</artifactId>
 
     <properties>
         <java.version>1.8</java.version>
@@ -18,11 +19,13 @@
 
     <dependencies>
 
+        <!--引入自己的包-->
         <dependency>
             <groupId>com.hao.springcloud</groupId>
             <artifactId>cloud-api-commons</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+
 
         <!--boot-->
         <dependency>
@@ -34,8 +37,11 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
-
-
+        <!-- mybatisPlus -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
 
         <!-- mysql驱动 -->
         <dependency>
@@ -56,37 +62,11 @@
             <version>2.2.1.RELEASE</version>
         </dependency>
 
-
-
-
         <!--openfeign  @FeignClient 使用-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-
-
-
-        <!--poi excel上传-->
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
-            <version>3.16</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-            <version>3.16</version>
-        </dependency>
-
-
-
-        <!--mybatisplus-->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-        </dependency>
-
 
     </dependencies>
 
@@ -97,6 +77,24 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                    <include>**/*.yml</include>
+                </includes>
+            </resource>
+            <!--为了resources下的配置文件生效，必须把下边的也配上去-->
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                    <include>**/*.yml</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
 
 </project>

@@ -1,0 +1,41 @@
+server:
+  port: 9001
+
+
+spring:
+  application:
+    #服务名
+    name: cloud-openfeign9001
+
+  #注册中心
+  cloud:
+    nacos:
+      discovery:
+        ###服务注册地址
+        server-addr: 127.0.0.1:8848
+        #server-addr: 127.0.0.1:8848
+
+  #数据库
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/springcloud2020?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 12345678
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:   #连接超时的问题
+      idle-timeout: 60000
+      connection-timeout: 60000
+      login-timeout: 3000
+      max-lifetime: 60000
+
+#mybatis:
+#  mapper-locations: classpath:mappers/*.xml
+#  config-location: classpath:mybatis-config.xml
+
+
+#mybatisplus配置
+mybatis-plus:
+  mapper-locations: classpath:**/mapper/xml/*.xml #指定mapper.xml路径
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  #开启日志打印
+
+
