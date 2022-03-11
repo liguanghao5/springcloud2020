@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class GetUserController {
 
     @Autowired
-    private User1Service user1Service;
+    User1Service user1Service;
 
 
     @GetMapping("/getUserName")

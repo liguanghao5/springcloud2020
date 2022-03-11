@@ -46,4 +46,9 @@ mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  #开启日志打印
 
+#激活 sentinel 对 feign 的支持，要不然 @FeignClient中的 fallback 不起作用
+feign:
+  sentinel:
+    enabled: true
+
 
