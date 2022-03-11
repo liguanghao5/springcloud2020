@@ -5,7 +5,9 @@ import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 
 import com.hao.cloudsentinel8100.myBlockHand.TestBlockHand;
+import com.hao.cloudsentinel8100.service.TestService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,15 +18,13 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class TestController {
 
+    @Autowired
+    private TestService testService;
+
 
     @GetMapping("/getA")
     public String getA(){
 
-//        try {
-//            TimeUnit.SECONDS.sleep(1);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
 
         return "getA";
     }
@@ -35,6 +35,23 @@ public class TestController {
 
         return "getB";
     }
+
+
+    /**
+     * 链路模式流控测试，只控制 getC1 的资源名
+     * @return
+     */
+    @GetMapping("/getC1")
+    public String getC1(){
+        log.info("=====请求getC1");
+        return testService.getC();
+    }
+    @GetMapping("/getC2")
+    public String getC2(){
+        log.info("====请求getC1");
+        return testService.getC();
+    }
+
 
     @GetMapping("/getD")
     public String getD(){

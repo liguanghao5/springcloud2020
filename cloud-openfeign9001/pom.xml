@@ -62,6 +62,20 @@
             <version>2.2.1.RELEASE</version>
         </dependency>
 
+        <!--sentinel 1.70以后使用链路规则需要-->
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-web-servlet</artifactId>
+            <version>1.8.3</version>
+        </dependency>
+
+        <!--sentinel持久化到 nacos-->
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-datasource-nacos</artifactId>
+            <version>1.8.3</version>
+        </dependency>
+
         <!--openfeign  @FeignClient 使用-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
