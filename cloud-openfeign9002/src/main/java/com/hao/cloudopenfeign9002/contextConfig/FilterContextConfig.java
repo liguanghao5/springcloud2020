@@ -1,4 +1,4 @@
-package com.hao.cloudsentinel8100.contextConfig;
+package com.hao.cloudopenfeign9002.contextConfig;
 
 
 

@@ -60,7 +60,7 @@
         <dependency>
             <groupId>com.alibaba.csp</groupId>
             <artifactId>sentinel-web-servlet</artifactId>
-            <version>1.8.0</version>
+
         </dependency>
 
         <!--sentinel持久化到 nacos-->

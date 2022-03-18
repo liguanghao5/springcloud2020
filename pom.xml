@@ -28,6 +28,8 @@
         <module>cloud-rabbitmq-consumer8006</module>
         <module>cloud-rabbitmq8007</module>
         <module>cloud-sentinel8100</module>
+        <module>cloud-openfeign9001</module>
+        <module>cloud-openfeign9002</module>
     </modules>
 
 
@@ -61,6 +63,13 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-commons</artifactId>
                 <version>${cloud.commons.version}</version>
+            </dependency>
+
+            <!--sentinel 1.70以后使用链路规则需要-->
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-web-servlet</artifactId>
+                <version>1.7.0</version>
             </dependency>
 
             <!--nacos-->
