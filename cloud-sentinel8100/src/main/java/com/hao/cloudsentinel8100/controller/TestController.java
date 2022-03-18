@@ -25,7 +25,7 @@ public class TestController {
     @GetMapping("/getA")
     public String getA(){
 
-
+        int i = 1/0;
         return "getA";
     }
 
@@ -139,6 +139,22 @@ public class TestController {
         return "getG";
     }
 
+    /**
+     * 热点限流
+     * @return
+     */
+    @GetMapping("/getH")
+    @SentinelResource(value = "getH" ,blockHandler = "blo_getH")
+    public String getH(@RequestParam(value = "aa",required = false)String aa,
+                       @RequestParam(value = "bb",required = false)String bb){
+
+
+        return "getH"+aa;
+    }
+
+    public String blo_getH(String aa ,String bb,BlockException exception){
+        return "blo_getH"+aa;
+    }
 
 
 }
