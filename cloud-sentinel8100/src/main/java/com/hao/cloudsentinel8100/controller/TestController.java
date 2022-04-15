@@ -157,4 +157,58 @@ public class TestController {
     }
 
 
+    @GetMapping("/getI")
+    @SentinelResource(value = "getI" ,blockHandler = "blo_getI")
+    public String getI(@RequestParam(value = "aa",required = false)String aa){
+
+        return "getI"+aa;
+    }
+
+    /**
+     * getI 的兜底的方法
+     * @param aa
+     * @param exception
+     * @return
+     */
+    public String blo_getI(String aa ,BlockException exception){
+
+        return "blo_getI:"+aa+"异常信息:"+exception.getMessage();
+    }
+
+
+    @GetMapping("/getJ")
+    @SentinelResource(value = "getJ" ,fallback = "getJ_back")
+    public String getJ(@RequestParam(value = "aa",required = false)String aa){
+        int i = 1/0;
+        return "getJ"+aa;
+    }
+
+    /**
+     * getJ接口异常的兜底方法
+     * @param aa
+     * @return
+     */
+    public String getJ_back(String aa){
+        return "getJ接口异常，入参:"+aa;
+    }
+
+    @GetMapping("/getK")
+    @SentinelResource(value = "getK" ,fallback = "getK_back" ,
+            exceptionsToIgnore = {IllegalArgumentException.class})
+    public String getK(@RequestParam(value = "aa",required = false)String aa){
+
+        if(aa == null){
+            throw new IllegalArgumentException();
+        }else{
+            int i=1/0;
+        }
+        return "getK"+aa;
+    }
+
+
+    public String getK_back(String aa){
+        return "getK接口异常，入参:"+aa;
+    }
+
+
 }
